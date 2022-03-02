@@ -1,0 +1,12 @@
+@import '../Abstract/color.module.scss';
+
+.Container{
+  padding: 16px;
+  background-color: $color1;
+
+  h1 {
+    font-size: 2rem;
+    color: $color5;
+    text-align: center;
+  }
+}
