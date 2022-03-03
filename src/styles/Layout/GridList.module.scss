@@ -1,4 +1,6 @@
 @import '../Abstract/mixins.module.scss';
+@import '../Abstract/color.module.scss';
+
 
 .container {
   @include container;
@@ -10,9 +12,30 @@
     auto-fit, 
     minmax(210px, auto)
   );
+  grid-template-rows: repeat(10, 300px);
+  grid-auto-flow: auto;
   gap: 24px;
 }
 
 .gridItem{
-  border: 1px solid red;
+  background-color: $color5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(
+    $color: $color11, 
+    $alpha: .15
+  );
+
+  img {
+    width: 100%;
+    height: 82%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  p{
+    padding: 8px;
+    text-align: center;
+    color: $color11;
+  }
 }

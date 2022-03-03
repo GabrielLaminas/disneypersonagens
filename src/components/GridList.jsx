@@ -20,12 +20,6 @@ const GridList = () => {
             alt={personagens["name"]}
           />
           <p>{personagens["name"]}</p>
-          <a 
-            target="_blank" 
-            href={personagens.sourceUrl}
-          >
-            Saber mais
-          </a>
         </Link>
       ))}
       </div>
