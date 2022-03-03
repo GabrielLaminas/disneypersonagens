@@ -1,0 +1,11 @@
+@import '../Abstract/mixins.module.scss';
+
+section {
+  @include container;
+  padding: 40px 24px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
