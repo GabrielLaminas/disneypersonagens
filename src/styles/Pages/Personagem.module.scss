@@ -1,5 +1,55 @@
 @import '../Abstract/mixins.module.scss';
+@import '../Abstract/color.module.scss';
 
-.Container{
+.container{
   @include container;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.gridInfo{
+  padding: 0 16px;
+  
+  .title{
+    margin-bottom: 16px;
+    position: relative;  
+    color: $color11;
+    font-size: 3rem;
+    font-weight: 700;
+
+    &::before{
+      content: '';
+      width: 24px;
+      height: 24px;
+      margin-left: -8px;
+      display: inline-block;
+      position: absolute;
+      bottom: 15px;
+      z-index: -1;
+      background-color: $color4;
+      border-radius: 4px;
+    }
+  }
+
+  .topic{
+    margin-bottom: 12px;
+    display: inline-block;
+    color: $color11;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .items{
+    color: rgba(
+      $color: $color11, 
+      $alpha: .7
+    );
+  }
+  .nitems{
+    color: $color55;
+  }
 }

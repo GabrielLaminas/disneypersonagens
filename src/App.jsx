@@ -11,7 +11,10 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<GridList />} />
-        <Route path="characters/:id" element={<Personagem />} />
+        <Route 
+          path="characters/:id" 
+          element={<Personagem />} 
+        />
       </Routes>
     </BrowserRouter>
   )

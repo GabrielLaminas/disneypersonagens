@@ -1,11 +1,18 @@
 @import '../Abstract/mixins.module.scss';
 
-section {
+.container {
   @include container;
-  padding: 40px 24px;
 }
 
-ul {
+.grid{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(
+    auto-fit, 
+    minmax(210px, auto)
+  );
+  gap: 24px;
+}
+
+.gridItem{
+  border: 1px solid red;
 }
