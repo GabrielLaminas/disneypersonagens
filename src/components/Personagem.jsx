@@ -8,8 +8,8 @@ const Personagem = () => {
   const params = useParams();
   const { data } = useFetch(params.id)
 
-  if(data === null) return null
-  console.log(data)
+  if(data === null) return null;
+
   return (
     <section className={style.container}>
       <div className={style.grid}>

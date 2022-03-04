@@ -1,9 +1,9 @@
 @import '../Abstract/mixins.module.scss';
 @import '../Abstract/color.module.scss';
 
-
 .container {
   @include container;
+  margin-bottom: 60px;
 }
 
 .grid{
@@ -12,12 +12,12 @@
     auto-fit, 
     minmax(210px, auto)
   );
-  grid-template-rows: repeat(10, 300px);
   grid-auto-flow: auto;
   gap: 24px;
 }
 
 .gridItem{
+  position: relative;
   background-color: $color5;
   border-radius: 8px;
   overflow: hidden;
@@ -28,14 +28,22 @@
 
   img {
     width: 100%;
-    height: 82%;
+    height: 100%;
     object-fit: cover;
     overflow: hidden;
   }
 
   p{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 4;
     padding: 8px;
     text-align: center;
-    color: $color11;
+    color: $color5;
+    background-color: rgba(
+      $color: $color11, 
+      $alpha: .65
+    );
   }
 }
