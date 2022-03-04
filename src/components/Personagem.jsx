@@ -3,13 +3,15 @@ import { useParams } from 'react-router-dom'
 import useFetch from '../hook/useFetch';
 
 import style from '../styles/Pages/Personagem.module.scss';
+import Loading from './Helper/Loading';
 
 const Personagem = () => {
   const params = useParams();
-  const { data } = useFetch(params.id)
+  const { data, loading } = useFetch(params.id)
 
+  if(loading) return <Loading />
   if(data === null) return null;
-
+  
   return (
     <section className={style.container}>
       <div className={style.grid}>

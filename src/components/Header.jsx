@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className={style.header}>
       <div className={style.container}>
-        <h1>Disney Personagens</h1>
+        <h1>Disney's Characters</h1>
         <Link to="/">Home</Link>
       </div>
     </header>

@@ -2,12 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useFetch from '../hook/useFetch';
 import style from '../styles/Layout/GridList.module.scss';
+import Loading from './Helper/Loading';
+import Pagination from './Helper/Pagination';
 import Select from './Helper/Select';
 
 const GridList = () => {
-  const { data } = useFetch('');
   const [select, setSelect] = React.useState('50');
-  
+  //const [page, setPage] = React.useState(1);
+  const { data, loading } = useFetch('');
+
+  if(loading) return <Loading />
   if(data === null) return null;
 
   const dataFilter = data.data.filter((datas, index) => {
@@ -38,7 +42,7 @@ const GridList = () => {
         </Link>
       ))}
       </div>
-    </section>
+      </section>
   );
 }
 
