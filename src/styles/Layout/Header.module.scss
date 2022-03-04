@@ -1,6 +1,6 @@
 @import '../Abstract/color.module.scss';
 @import '../Abstract/mixins.module.scss';
-
+@import '../Abstract//midiaquerie.module.scss';
 
 .header{
   background-color: $color1;
@@ -20,6 +20,10 @@
     font-weight: 700;
     color: $color5;
     text-align: center;
+
+    @include mobile{
+      font-size: 1.25rem;
+    }
   }
 
   a{
