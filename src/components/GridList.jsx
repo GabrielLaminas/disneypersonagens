@@ -11,14 +11,18 @@ const GridList = () => {
   //const [page, setPage] = React.useState(1);
   const { data, loading } = useFetch('');
 
-  if(loading) return <Loading />
-  if(data === null) return null;
-
-  const dataFilter = data.data.filter((datas, index) => {
-    if(index < select){
-      return datas;
+  const dataList = React.useMemo(() => {
+    if(data !== null){
+      const dataFilter = data.data.filter((item, index) => {
+        if(index < select){
+          return item;
+        }
+      });
+      return dataFilter;
     }
-  });
+  }, [data, select]);
+  
+  if(loading) return <Loading />
 
   return (
     <section className={style.container}>
@@ -28,7 +32,7 @@ const GridList = () => {
       />
 
       <div className={style.grid}>
-      {dataFilter.map((personagens) => (
+      {dataList && dataList.map((personagens) => (
         <Link 
           to={`/characters/${personagens["_id"]}`} 
           key={personagens["_id"]}

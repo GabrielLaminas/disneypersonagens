@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const useFetch = (id) => {
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
-  const baseUrl = `https://api.disneyapi.dev/characters/${id}`;
+  const baseUrl = 
+    `https://api.disneyapi.dev/characters/${id}`;
 
   React.useEffect(() => {
     async function getCharacters(url){

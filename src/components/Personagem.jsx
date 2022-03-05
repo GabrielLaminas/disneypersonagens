@@ -11,7 +11,7 @@ const Personagem = () => {
 
   if(loading) return <Loading />
   if(data === null) return null;
-  
+
   return (
     <section className={style.container}>
       <div className={style.grid}>
@@ -85,4 +85,4 @@ const Personagem = () => {
   )
 }
 
-export default Personagem
+export default Personagem;

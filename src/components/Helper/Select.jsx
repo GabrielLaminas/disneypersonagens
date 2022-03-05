@@ -2,6 +2,7 @@ import React from 'react';
 import style from '../../styles/components/Select.module.scss';
 
 const Select = ({ value, setValue }) => {
+
   return (
     <div className={style.containerSelect}>
       <label htmlFor='items'>Characters: </label>
@@ -22,4 +23,4 @@ const Select = ({ value, setValue }) => {
   )
 }
 
-export default Select;
+export default React.memo(Select);
