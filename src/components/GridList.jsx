@@ -2,14 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useFetch from '../hook/useFetch';
 import style from '../styles/Layout/GridList.module.scss';
+
 import Loading from './Helper/Loading';
 import Pagination from './Helper/Pagination';
 import Select from './Helper/Select';
 
 const GridList = () => {
-  const [select, setSelect] = React.useState('50');
-  //const [page, setPage] = React.useState(1);
-  const { data, loading } = useFetch('');
+  const [select, setSelect] = React.useState('10');
+  const [page, setPage] = React.useState(1);
+  const url = `https://api.disneyapi.dev/characters?page=${page}`;
+  const { data, loading } = useFetch(url);
 
   const dataList = React.useMemo(() => {
     if(data !== null){
@@ -20,9 +22,14 @@ const GridList = () => {
       });
       return dataFilter;
     }
-  }, [data, select]);
-  
+  }, [data, select, page]);
+
+
   if(loading) return <Loading />
+
+  function handleClick(){
+    setPage(page+1);
+  }
 
   return (
     <section className={style.container}>
@@ -46,7 +53,11 @@ const GridList = () => {
         </Link>
       ))}
       </div>
-      </section>
+      <button onClick={handleClick}>
+        Próxima pagina
+      </button>
+     {/* <Pagination />*/}
+    </section>
   );
 }
 

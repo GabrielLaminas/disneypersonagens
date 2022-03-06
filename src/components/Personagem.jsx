@@ -7,8 +7,9 @@ import Loading from './Helper/Loading';
 
 const Personagem = () => {
   const params = useParams();
-  const { data, loading } = useFetch(params.id)
-
+  const urlWithId = `https://api.disneyapi.dev/characters/${params.id}`;
+  const { data, loading } = useFetch(urlWithId);
+  
   if(loading) return <Loading />
   if(data === null) return null;
 
@@ -24,7 +25,6 @@ const Personagem = () => {
 
         <div className={style.gridInfo}>
           <h1 className={style.title}>{data.name}</h1>
-
           <ul className={style.topic}>Filmes: 
             {data.films.length !== 0 ? 
             (data.films.map((film, i) => (
@@ -79,6 +79,7 @@ const Personagem = () => {
             : <li className={style.nitems}>Do not have</li>
             }
           </ul>
+          
         </div>
       </div>
     </section>
