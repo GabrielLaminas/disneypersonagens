@@ -6,9 +6,8 @@ import style from '../styles/Pages/Personagem.module.scss';
 import Loading from './Helper/Loading';
 
 const Personagem = () => {
-  const params = useParams();
-  const urlWithId = `https://api.disneyapi.dev/characters/${params.id}`;
-  const { data, loading } = useFetch(urlWithId);
+  const { id } = useParams();
+  const { data, loading } = useFetch(`https://api.disneyapi.dev/characters/${id}`);
   
   if(loading) return <Loading />
   if(data === null) return null;

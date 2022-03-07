@@ -1,0 +1,24 @@
+@import '../Abstract/color.module.scss';
+@import '../Abstract/mixins.module.scss';
+
+
+.container{
+  @include container;
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  a{
+    padding: 8px 16px;
+    text-align: center;
+    background-color: $color5;
+    border: 2px solid $color11;
+    border-radius: 4px;
+    color: $color22;
+    font-size: 1.125rem;
+    cursor: pointer;
+  }
+}

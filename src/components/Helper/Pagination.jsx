@@ -1,22 +1,18 @@
 import React from 'react';
+import style from '../../styles/components/Pagination.module.scss';
 
-const Pagination = (props) => {
+const Pagination = ({ page, setPage}) => {
   const pages = [1, 2, 3, 4, 5];
 
   return (
-    <div>
-      <p>Total: {props.totalPages}</p>
-      <p>Next: {props.nextPage}</p>
-      <p>Previous: {props.previousPage}</p>
-      <p>Page: {props.page}</p>
-
-      <div>
-        {pages.map((page, id) => (
-          <a key={id}>
-            {page}
-          </a>
-        ))}
-      </div>
+    <div className={style.container}>
+      {pages.map((numberPage, id) => (
+        <a 
+          key={id}
+        >
+          {numberPage}
+        </a>
+      ))}
     </div>
   )
 }

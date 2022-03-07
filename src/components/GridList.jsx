@@ -35,13 +35,13 @@ const GridList = () => {
     }
   }, [data, select]);
 
-  if(loading) return <Loading />
-
   function handleClick(){
     setPage(Number(page) + 1);
     window.localStorage.setItem('page', Number(page) + 1);
   }
-  
+
+  if(loading) return <Loading />
+
   return (
     <section className={style.container}>
       <Select 
@@ -67,7 +67,10 @@ const GridList = () => {
       <button onClick={handleClick}>
         Próxima pagina
       </button>
-     {/* <Pagination />*/}
+     <Pagination
+        page={page} 
+        setPage={setPage}
+     />
     </section>
   );
 }
