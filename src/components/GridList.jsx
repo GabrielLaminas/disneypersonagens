@@ -35,11 +35,6 @@ const GridList = () => {
     }
   }, [data, select]);
 
-  function handleClick(){
-    setPage(Number(page) + 1);
-    window.localStorage.setItem('page', Number(page) + 1);
-  }
-
   if(loading) return <Loading />
 
   return (
@@ -64,10 +59,9 @@ const GridList = () => {
         </Link>
       ))}
       </div>
-      <button onClick={handleClick}>
-        Próxima pagina
-      </button>
+
      <Pagination
+        totalPage={data && data.totalPages}
         page={page} 
         setPage={setPage}
      />
