@@ -3,6 +3,11 @@ import style from '../../styles/components/Select.module.scss';
 
 const Select = ({ value, setValue }) => {
 
+  function handleChange({ target }){
+    setValue(target.value);
+    window.localStorage.setItem('select', target.value);
+  }
+
   return (
     <div className={style.containerSelect}>
       <label htmlFor='items'>Characters: </label>
@@ -11,7 +16,7 @@ const Select = ({ value, setValue }) => {
         name='items' 
         id='items'
         value={value} 
-        onChange={({ target }) => setValue(target.value)}
+        onChange={handleChange}
       >
         <option value="10">10</option>
         <option value="20">20</option>

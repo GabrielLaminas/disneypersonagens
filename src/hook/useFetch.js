@@ -22,7 +22,7 @@ const useFetch = (urls) => {
       }
     }
     getCharacters(urls);
-  }, []);
+  }, [urls]);
 
   return {
     data,

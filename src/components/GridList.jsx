@@ -8,10 +8,21 @@ import Pagination from './Helper/Pagination';
 import Select from './Helper/Select';
 
 const GridList = () => {
-  const [select, setSelect] = React.useState('10');
-  const [page, setPage] = React.useState(1);
-  const url = `https://api.disneyapi.dev/characters?page=${page}`;
-  const { data, loading } = useFetch(url);
+  const [select, setSelect] = React.useState(() => {
+    const selectStorage = window.localStorage.getItem('select') 
+      ? window.localStorage.getItem('select')
+      : window.localStorage.setItem('select', '10')
+    return selectStorage;
+  });
+
+  const [page, setPage] = React.useState(() => {
+    const pageStorage = window.localStorage.getItem('page') 
+      ? window.localStorage.getItem('page') 
+      : window.localStorage.setItem('page', Number(1))
+    return pageStorage;
+  });
+
+  const { data, loading } = useFetch(`https://api.disneyapi.dev/characters?page=${page}`);
 
   const dataList = React.useMemo(() => {
     if(data !== null){
@@ -22,15 +33,15 @@ const GridList = () => {
       });
       return dataFilter;
     }
-  }, [data, select, page]);
-
+  }, [data, select]);
 
   if(loading) return <Loading />
 
   function handleClick(){
-    setPage(page+1);
+    setPage(Number(page) + 1);
+    window.localStorage.setItem('page', Number(page) + 1);
   }
-
+  
   return (
     <section className={style.container}>
       <Select 
