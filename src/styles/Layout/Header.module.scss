@@ -29,10 +29,18 @@
   a{
     font-size: 1.125rem;
     color: $color5;
+    letter-spacing: .5px;
     transition: .2s;
-    
+    border-radius: 4px;
+
     &:hover{
-      color: $color4
+      color: $color11;
     }
+  }
+
+  a:global(.active){
+    color: rgba($color: $color5, $alpha: 1);
+    text-decoration: underline;
+    pointer-events: none;
   }
 }

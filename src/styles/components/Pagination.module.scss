@@ -10,15 +10,15 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
 
-  .page{
-    padding: 8px 16px;
-    text-align: center;
-    background-color: $color5;
-    border: 2px solid $color11;
-    border-radius: 4px;
-    color: $color22;
-    font-size: 1.125rem;
-    cursor: pointer;
-  }
+.page{
+  padding: 8px 16px;
+  text-align: center;
+  background-color: $color5;
+  border: 2px solid $color11;
+  border-radius: 4px;
+  color: $color22;
+  font-size: 1.125rem;
+  cursor: pointer;
 }

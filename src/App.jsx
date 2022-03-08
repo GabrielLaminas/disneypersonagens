@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import GridList from './components/GridList';
 import Header from './components/Header';
-import Personagem from './components/Personagem';
+import Character from './components/Character';
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
         <Route path="/" element={<GridList />} />
         <Route 
           path="characters/:id" 
-          element={<Personagem />} 
+          element={<Character />} 
         />
       </Routes>
     </BrowserRouter>

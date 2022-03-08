@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import style from '../styles/Layout/Header.module.scss';
 
@@ -8,10 +8,10 @@ const Header = () => {
     <header className={style.header}>
       <div className={style.container}>
         <h1>Disney's Characters</h1>
-        <Link to="/">Home</Link>
+        <NavLink to="/" end>Home</NavLink>
       </div>
     </header>
   )
 }
 
-export default Header
+export default Header;

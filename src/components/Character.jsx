@@ -2,10 +2,10 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import useFetch from '../hook/useFetch';
 
-import style from '../styles/Pages/Personagem.module.scss';
+import style from '../styles/Pages/Character.module.scss';
 import Loading from './Helper/Loading';
 
-const Personagem = () => {
+const Character = () => {
   const { id } = useParams();
   const { data, loading } = useFetch(`https://api.disneyapi.dev/characters/${id}`);
   
@@ -85,4 +85,4 @@ const Personagem = () => {
   )
 }
 
-export default Personagem;
+export default Character; 
