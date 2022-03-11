@@ -36,7 +36,7 @@ const GridList = () => {
   }, [data, select]);
 
   if(loading) return <Loading />
-
+  
   return (
     <section className={style.container}>
       <Select 
@@ -52,7 +52,11 @@ const GridList = () => {
           className={style.gridItem}
         >
           <img 
-            src={personagens["imageUrl"]}
+            src={
+              personagens["imageUrl"] ? 
+                personagens["imageUrl"] 
+                : 'https://static.wikia.nocookie.net/disney/images/7/7c/Noimage.png'
+            }
             alt={personagens["name"]}
           />
           <p>{personagens["name"]}</p>

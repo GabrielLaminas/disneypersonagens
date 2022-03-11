@@ -1,6 +1,7 @@
 @import '../Abstract/mixins.module.scss';
 @import '../Abstract/color.module.scss';
 @import '../Abstract/midiaquerie.module.scss';
+@import '../Abstract/animation.module.scss';
 
 .container{
   @include container;
@@ -21,6 +22,8 @@
 }
 
 .imgContainer{
+  animation: show-left .8s ease-out forwards;
+
   img{
     width: 100%;
     border-radius: 8px;
@@ -33,6 +36,7 @@
 
 .gridInfo{
   padding: 0 16px;
+  animation: show-right .8s ease-out forwards;
   
   .title{
     margin-bottom: 16px;

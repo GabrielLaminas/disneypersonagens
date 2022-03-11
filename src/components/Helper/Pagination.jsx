@@ -8,14 +8,12 @@ const Pagination = ({ totalPage, page, setPage}) => {
     const itemsPerPage = 7;
     const startIndex = arrayTotalPages[currentPage - 1];
     const endIndex = startIndex + itemsPerPage;
-    let currentItems = arrayTotalPages.slice(startIndex - 1, endIndex - 1);
+    let currentItems = arrayTotalPages.slice(startIndex - startIndex, endIndex - startIndex);
     
-    if(startIndex !== 1){
-      currentItems = arrayTotalPages.slice(startIndex - 2, endIndex - 2)
-      console.log('start ', startIndex - 2)
-      console.log('end ', endIndex - 2);
-      console.log(currentItems)
+    if(startIndex !== 1 && startIndex !== 2 && startIndex !== 3){
+      currentItems = arrayTotalPages.slice(startIndex - 4, endIndex - 4)
     }
+
     return currentItems;
   }
 
@@ -26,21 +24,51 @@ const Pagination = ({ totalPage, page, setPage}) => {
     window.localStorage.setItem('page', valueTarget);
   }
 
+  function handlePrevious(e){
+    e.preventDefault();
+    if(page !== '1'){
+      setPage(Number(page) - 1);
+    }
+  }
+  
+  function handleNext(e){
+    e.preventDefault();
+    if(page !== '149'){
+      setPage(Number(page) + 1);
+    }
+  }
+
   return (
     <nav className={style.container}>
-      {/**<a href="#">&laquo;</a> */}
+      <button
+        className={`
+          ${Number(page) !== 1 ? style.buttom : style.buttomDisabled}
+        `} 
+        onClick={handlePrevious}
+      >
+        &laquo;
+      </button>
+
       {pagination(totalPage, Number(page)).map((item, i) => (
         <a
           key={i} 
           className={
-            `${item === Number(page) ? style.active : style.page}`
+            `${item === Number(page) ? style.activePage : style.page}`
           } 
           onClick={handleClick}
         >
           {item}
         </a>
       ))}
-      {/*<a href="#">&raquo;</a> */}
+
+      <button
+        className={`
+          ${Number(page) !== 149 ? style.buttom : style.buttomDisabled}
+        `} 
+        onClick={handleNext}
+      >
+        &raquo;
+      </button>
     </nav>
   )
 }

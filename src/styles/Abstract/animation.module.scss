@@ -1,0 +1,38 @@
+@keyframes show-top {
+  from{
+    position: relative;
+    top: -50px;
+    opacity: 0;
+  }
+  to{
+    position: relative;
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes show-left {
+  from{
+    position: relative;
+    left: -100px;
+    opacity: 0;
+  }
+  to{
+    position: relative;
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes show-right {
+  from{
+    position: relative;
+    right: -100px;
+    opacity: 0;
+  }
+  to{
+    position: relative;
+    right: 0;
+    opacity: 1;
+  }
+}

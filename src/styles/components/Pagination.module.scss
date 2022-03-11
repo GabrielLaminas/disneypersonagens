@@ -1,9 +1,7 @@
 @import '../Abstract/color.module.scss';
 @import '../Abstract/mixins.module.scss';
 
-
 .container{
-  @include container;
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
@@ -12,18 +10,21 @@
   gap: 4px;
 }
 
+.buttomDisabled,
+.buttom,
 .page,
-.active{
+.activePage{
   padding: 8px 16px;
   color: $color11;
   font-size: 1.125rem;
   font-weight: bold;
   text-align: center;
+  border: none;
   border-radius: 4px;
   transition: .2s;
 }
 
-.page{
+.page, .buttom{
   cursor: pointer;
 
   &:hover{
@@ -34,7 +35,11 @@
   }
 }
 
-.active{
+.buttomDisabled{
+  cursor: not-allowed;
+}
+
+.activePage{
   background-color: $color1;
   color: $color5;
   pointer-events: none;

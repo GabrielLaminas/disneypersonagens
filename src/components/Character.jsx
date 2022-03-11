@@ -11,13 +11,19 @@ const Character = () => {
   
   if(loading) return <Loading />
   if(data === null) return null;
-
+  console.log(data)
   return (
     <section className={style.container}>
       <div className={style.grid}>
-        <div className={style.imgContainer}>
+        <div 
+          className={style.imgContainer}
+        >
           <img 
-            src={data.imageUrl}
+            src={
+              data.imageUrl 
+                ? data.imageUrl
+                : 'https://static.wikia.nocookie.net/disney/images/7/7c/Noimage.png'
+            }
             alt={data.name}
           />
         </div>

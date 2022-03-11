@@ -1,6 +1,7 @@
 @import '../Abstract/mixins.module.scss';
 @import '../Abstract/color.module.scss';
 @import '../Abstract/midiaquerie.module.scss';
+@import '../Abstract/animation.module.scss';
 
 .container {
   @include container;
@@ -26,15 +27,17 @@
 }
 
 .gridItem{
-  height: 350px;
+  height: 300px;
   position: relative;
   background-color: $color5;
+  color: $color11;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 16px rgba(
     $color: $color11, 
     $alpha: .1
   );
+  animation: show-left 1s ease-out forwards;
 
   img {
     width: 100%;

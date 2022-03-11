@@ -1,16 +1,15 @@
 @import '../Abstract/color.module.scss';
+@import '../Abstract/animation.module.scss';
 
 .containerSelect{
   margin-bottom: 40px;
-  //border: 1px solid red;
   text-align: end;
-
+  animation: show-top 1s ease forwards;
 
   label{
     margin-right: 4px;
     font-size: 1.125rem;
   }
-
 
   select{
     padding: 6px;
