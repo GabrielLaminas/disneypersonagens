@@ -9,16 +9,33 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
+}
+
+.page,
+.active{
+  padding: 8px 16px;
+  color: $color11;
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  transition: .2s;
 }
 
 .page{
-  padding: 8px 16px;
-  text-align: center;
-  background-color: $color5;
-  border: 2px solid $color11;
-  border-radius: 4px;
-  color: $color22;
-  font-size: 1.125rem;
   cursor: pointer;
+
+  &:hover{
+    background-color: rgba(
+      $color: $color1, 
+      $alpha: .15
+    );
+  }
+}
+
+.active{
+  background-color: $color1;
+  color: $color5;
+  pointer-events: none;
 }
