@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useFetch from '../hook/useFetch';
 import style from '../styles/Layout/GridList.module.scss';
+import Head from './Helper/Head';
 
 import Loading from './Helper/Loading';
 import Pagination from './Helper/Pagination';
@@ -39,6 +40,11 @@ const GridList = () => {
   
   return (
     <section className={style.container}>
+      <Head 
+        title="Disney's Characters"
+        description="Project about disney's characters you can see list of characters and their details"
+      />
+
       <Select 
         value={select}
         setValue={setSelect}

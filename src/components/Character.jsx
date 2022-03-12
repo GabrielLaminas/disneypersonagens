@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import useFetch from '../hook/useFetch';
 
 import style from '../styles/Pages/Character.module.scss';
+import Head from './Helper/Head';
 import Loading from './Helper/Loading';
 
 const Character = () => {
@@ -14,6 +15,10 @@ const Character = () => {
   console.log(data)
   return (
     <section className={style.container}>
+      <Head 
+        title={`Character ${id}`}
+        description="characters and their details"
+      />
       <div className={style.grid}>
         <div 
           className={style.imgContainer}
