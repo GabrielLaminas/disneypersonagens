@@ -11,7 +11,7 @@ const Pagination = ({ totalPage, page, setPage}) => {
     let currentItems = arrayTotalPages.slice(startIndex - startIndex, endIndex - startIndex);
     
     if(startIndex !== 1 && startIndex !== 2 && startIndex !== 3){
-      currentItems = arrayTotalPages.slice(startIndex - 4, endIndex - 4)
+      currentItems = arrayTotalPages.slice(startIndex - 4, endIndex - 4);
     }
 
     return currentItems;
@@ -27,7 +27,7 @@ const Pagination = ({ totalPage, page, setPage}) => {
   function handlePrevious(e){
     e.preventDefault();
 
-    if(page !== '1'){
+    if(Number(page) > 1){
       setPage(Number(page) - 1);
       window.localStorage.setItem('page', Number(page) - 1);
     }
@@ -36,7 +36,7 @@ const Pagination = ({ totalPage, page, setPage}) => {
   function handleNext(e){
     e.preventDefault();
     
-    if(page !== '149'){
+    if(Number(page) < 149){
       setPage(Number(page) + 1);
       window.localStorage.setItem('page', Number(page) + 1);
     }
