@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import GridList from './components/GridList';
 import Header from './components/Header';
 import Character from './components/Character';
+import Page404 from './components/Helper/Page404';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           path="characters/:id" 
           element={<Character />} 
         />
+        <Route path='*' element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   )

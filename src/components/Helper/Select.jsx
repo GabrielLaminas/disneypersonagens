@@ -9,7 +9,7 @@ const Select = ({ value, setValue }) => {
   }
 
   return (
-    <div className={style.containerSelect}>
+    <form className={style.containerSelect}>
       <label htmlFor='items'>Characters: </label>
 
       <select
@@ -23,8 +23,8 @@ const Select = ({ value, setValue }) => {
         <option value="30">30</option>
         <option value="40">40</option>
         <option value="50">50</option>
-    </select>
-    </div>
+      </select>
+    </form>
   )
 }
 

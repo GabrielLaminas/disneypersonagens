@@ -1,0 +1,14 @@
+@import '../Abstract/mixins.module.scss';
+
+.container{
+  height: calc(100vh - 74px);
+  @include container;
+  margin-top: -40px;
+  display: flex;
+
+  svg{
+    max-width: 600px;
+    max-height: 600px;
+    margin: 0 auto;
+  }
+}

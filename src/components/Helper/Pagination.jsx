@@ -26,6 +26,7 @@ const Pagination = ({ totalPage, page, setPage}) => {
 
   function handlePrevious(e){
     e.preventDefault();
+
     if(page !== '1'){
       setPage(Number(page) - 1);
       window.localStorage.setItem('page', Number(page) - 1);
@@ -34,6 +35,7 @@ const Pagination = ({ totalPage, page, setPage}) => {
   
   function handleNext(e){
     e.preventDefault();
+    
     if(page !== '149'){
       setPage(Number(page) + 1);
       window.localStorage.setItem('page', Number(page) + 1);

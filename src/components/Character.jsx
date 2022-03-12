@@ -12,7 +12,7 @@ const Character = () => {
   
   if(loading) return <Loading />
   if(data === null) return null;
-  console.log(data)
+
   return (
     <section className={style.container}>
       <Head 
@@ -33,7 +33,7 @@ const Character = () => {
           />
         </div>
 
-        <div className={style.gridInfo}>
+        <section className={style.gridInfo}>
           <h1 className={style.title}>{data.name}</h1>
           <ul className={style.topic}>Filmes: 
             {data.films.length !== 0 ? 
@@ -90,7 +90,7 @@ const Character = () => {
             }
           </ul>
           
-        </div>
+        </section>
       </div>
     </section>
   )

@@ -12,7 +12,7 @@ const GridList = () => {
   const [select, setSelect] = React.useState(() => {
     const selectStorage = window.localStorage.getItem('select') 
       ? window.localStorage.getItem('select')
-      : window.localStorage.setItem('select', '10')
+      : window.localStorage.setItem('select', '20')
     return selectStorage;
   });
 
@@ -39,7 +39,7 @@ const GridList = () => {
   if(loading) return <Loading />
   
   return (
-    <section className={style.container}>
+    <main className={style.container}>
       <Head 
         title="Disney's Characters"
         description="Project about disney's characters you can see list of characters and their details"
@@ -50,7 +50,7 @@ const GridList = () => {
         setValue={setSelect}
       />
 
-      <div className={style.grid}>
+      <section className={style.grid}>
       {dataList && dataList.map((personagens) => (
         <Link 
           to={`/characters/${personagens["_id"]}`} 
@@ -68,14 +68,14 @@ const GridList = () => {
           <p>{personagens["name"]}</p>
         </Link>
       ))}
-      </div>
+      </section>
 
      <Pagination
         totalPage={data && data.totalPages}
         page={page} 
         setPage={setPage}
      />
-    </section>
+    </main>
   );
 }
 

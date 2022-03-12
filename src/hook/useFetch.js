@@ -4,7 +4,6 @@ const useFetch = (urls) => {
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
-  //const baseUrl = `https://api.disneyapi.dev/characters/${id}`;
 
   React.useEffect(() => {
     async function getCharacters(url){
