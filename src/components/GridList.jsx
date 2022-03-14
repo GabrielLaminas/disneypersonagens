@@ -26,10 +26,6 @@ const GridList = () => {
 
   const { data, loading } = useFetch(`https://api.disneyapi.dev/characters?page=${page}`);
 
-  React.useEffect(() => {
-    useFetch(`https://api.disneyapi.dev/characters?page=${page}`);
-  }, []);
-
   const dataList = React.useMemo(() => {
     if(data !== null){
       const dataFilter = data.data.filter((item, index) => {
