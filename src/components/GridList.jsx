@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useFetch from '../hook/useFetch';
 import style from '../styles/Layout/GridList.module.scss';
-import Head from './Helper/Head';
 
+import Head from './Helper/Head';
 import Loading from './Helper/Loading';
 import Pagination from './Helper/Pagination';
 import Select from './Helper/Select';
@@ -25,8 +25,10 @@ const GridList = () => {
   });
 
   React.useEffect(() => {
-    setPage(1);
-    setSelect('20')
+    const getPage = localStorage.getItem('page');
+    const getSelect = localStorage.getItem('select');
+    setPage(getPage);
+    setSelect(getSelect);   
   }, []);
 
   const { data, loading } = useFetch(`https://api.disneyapi.dev/characters?page=${page}`);
