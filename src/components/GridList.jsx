@@ -20,9 +20,14 @@ const GridList = () => {
   const [page, setPage] = React.useState(() => {
     const pageStorage = window.localStorage.getItem('page') 
       ? window.localStorage.getItem('page') 
-      : window.localStorage.setItem('page', Number(1))
+      : window.localStorage.setItem('page', 1)
     return pageStorage;
   });
+
+  React.useEffect(() => {
+    setPage(1);
+    setSelect('20')
+  }, []);
 
   const { data, loading } = useFetch(`https://api.disneyapi.dev/characters?page=${page}`);
 
