@@ -7,6 +7,7 @@ import Head from './Helper/Head';
 import Loading from './Helper/Loading';
 import Pagination from './Helper/Pagination';
 import Select from './Helper/Select';
+import ButtonToTop from './Helper/ButtonToTop';
 
 const GridList = () => {
   const [select, setSelect] = React.useState(() => {
@@ -70,11 +71,13 @@ const GridList = () => {
       ))}
       </section>
 
-     <Pagination
-        totalPage={data && data.totalPages}
-        page={page} 
-        setPage={setPage}
-     />
+      <Pagination
+          totalPage={data && data.totalPages}
+          page={page} 
+          setPage={setPage}
+      />
+
+      <ButtonToTop />
     </main>
   );
 }

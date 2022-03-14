@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   background-color: #EBF2FF;
   font-family: 'DM Sans', sans-serif;

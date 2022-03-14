@@ -8,7 +8,6 @@
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-    
   @include mobile{
     margin-bottom: 40px;
     padding: 0 32px;
@@ -16,7 +15,7 @@
 }
 
 .grid{
-  min-height: 100vh;
+  min-height: calc(100vh - 107px);
   display: grid;
   grid-template-columns: repeat(
     auto-fit, 
