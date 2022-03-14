@@ -3,8 +3,8 @@
 @import '../Abstract/midiaquerie.module.scss';
 
 .container{
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,16 +13,19 @@
   bottom: 80px;
   background-color: $color1;
   text-align: center;
+  box-shadow: 0 0 12px rgba($color: #333, $alpha: 0.4);
   border-radius: 50%;
-  animation: .3s;
+  transition: .2s;
   cursor: pointer;
 
   svg{
     fill: $color5;
+    pointer-events: none;
   }
 
   &:hover{
-    background-color: $color4;
+    background-color: $color3;
+    transform: scale(1.1);
   }
 
   @include mobile{

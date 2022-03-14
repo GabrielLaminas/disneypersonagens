@@ -14,7 +14,6 @@
   align-items: center;
   justify-content: space-between;
 
-
   h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -23,6 +22,9 @@
 
     @include mobile{
       font-size: 1.25rem;
+    }
+    @include mobile-small{
+      margin-bottom: 16px;
     }
   }
 
@@ -42,5 +44,10 @@
     color: rgba($color: $color5, $alpha: 1);
     text-decoration: underline;
     pointer-events: none;
+  }
+
+  @include mobile-small{
+    flex-direction: column;
+    justify-content: center;
   }
 }

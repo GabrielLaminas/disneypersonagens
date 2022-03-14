@@ -12,6 +12,9 @@
     margin-bottom: 40px;
     padding: 0 32px;
   }
+  @include mobile-small{
+    padding: 0 16px;
+  }
 }
 
 .grid{
