@@ -31,11 +31,11 @@ const GridList = () => {
     setSelect(getSelect);   
   }, []);
 
-  const { data, loading } = useFetch(`https://api.disneyapi.dev/characters?page=${page}`);
-
+  const { data, infoPage, loading } = useFetch(`https://api.disneyapi.dev/character?page=${page}`);
+  
   const dataList = React.useMemo(() => {
     if(data !== null){
-      const dataFilter = data.data.filter((item, index) => {
+      const dataFilter = data.filter((item, index) => {
         if(index < select){
           return item;
         }
@@ -45,7 +45,7 @@ const GridList = () => {
   }, [data, select]);
 
   if(loading) return <Loading />
-  
+
   return (
     <main className={style.container}>
       <Head 
@@ -79,9 +79,9 @@ const GridList = () => {
       </section>
 
       <Pagination
-          totalPage={data && data.totalPages}
-          page={page} 
-          setPage={setPage}
+        totalPage={infoPage && infoPage.totalPages}
+        page={page} 
+        setPage={setPage}
       />
 
       <ButtonToTop />

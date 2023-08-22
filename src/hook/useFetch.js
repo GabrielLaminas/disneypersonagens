@@ -2,6 +2,7 @@ import React from 'react';
 
 const useFetch = (urls) => {
   const [data, setData] = React.useState(null);
+  const [infoPage, setInfoPage] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
 
@@ -11,7 +12,8 @@ const useFetch = (urls) => {
         setLoading(true);
         const response = await fetch(url);
         const json = await response.json();
-        setData(json);
+        setData(json.data);
+        setInfoPage(json.info);
       }
       catch(err){
         setError(err.message);
@@ -25,6 +27,7 @@ const useFetch = (urls) => {
 
   return {
     data,
+    infoPage,
     error,
     loading
   }

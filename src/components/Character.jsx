@@ -8,8 +8,8 @@ import Loading from './Helper/Loading';
 
 const Character = () => {
   const { id } = useParams();
-  const { data, loading } = useFetch(`https://api.disneyapi.dev/characters/${id}`);
-  
+  const { data, loading } = useFetch(`https://api.disneyapi.dev/character/${id}`);
+
   if(loading) return <Loading />
   if(data === null) return null;
 
