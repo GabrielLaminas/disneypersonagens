@@ -50,7 +50,7 @@ const Pagination = ({ totalPage, page, setPage}) => {
         `} 
         onClick={handlePrevious}
       >
-        &laquo;
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKZJREFUSEvt1L0RQEAQhuFd0cUKoSUqQSWUhAoogPgyBoG/Gd/eLRkp8z7sgunjgz/u0w/ACXuNyIRxSTR1dmwLJDgDW5ySLTzlCHECzvFVqOzYpE9PIQZ84gssAnzjIkATh4A2LgCijIjzfYn4rbkuHO7AhDoEAssdaRARoEHEgC/iBNwQ5tQOdfXKl3yMrDvhoEdx+JqiP6XkvPOIJNHjNT8AJzYDOshNGW8n1m4AAAAASUVORK5CYII="/>
       </button>
 
       {pagination(totalPage, Number(page)).map((item, i) => (
@@ -71,7 +71,7 @@ const Pagination = ({ totalPage, page, setPage}) => {
         `} 
         onClick={handleNext}
       >
-        &raquo;
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALVJREFUSEtjZKAxYKSx+QyjFhAMYaKCiENIfz4Dw/8HP95daiRoIpoCghZADGdIgOj730CqJXgt4BAwUGBg+hfPwMDYgHAYaZYQ9AHIYA4hvXpyLSHKAkosIdoCci0hyQJyLCHDAuRUBY76BT/eXUzElXxJsgA1yRI2HKSCaAvIMZxoC8g1nCgLKDGcSAtQMhneCMUW0UTFATQnK+BLLVRJRaSWpEQFETmGIushKogosWToWwAAcCJNGQOFyUEAAAAASUVORK5CYII="/>
       </button>
     </nav>
   )

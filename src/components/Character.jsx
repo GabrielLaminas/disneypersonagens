@@ -16,7 +16,7 @@ const Character = () => {
   return (
     <section className={style.container}>
       <Head 
-        title={`Character ${id}`}
+        title={`Character | ${data.name}`}
         description="characters and their details"
       />
       <div className={style.grid}>
