@@ -38,19 +38,26 @@ const Pagination = ({ info, setUrl, search }) => {
   function handlePrevious(e){
     e.preventDefault();
     setCurrentPage((prevPage) => prevPage - 1);
+    /*
     setUrl(() => info.previousPage + '&name=' + search);
-    localStorage.setItem('currentPage', currentPage - 1);
     localStorage.setItem('url', info.previousPage + '&name=' + search);
+    */
+    setUrl(() => `https://api.disneyapi.dev/character?page=${currentPage - 1}&pageSize=50&name=${search}`);
+    localStorage.setItem('currentPage', currentPage - 1);
+    localStorage.setItem('url', `https://api.disneyapi.dev/character?page=${currentPage - 1}&pageSize=50&name=${search}`);
     window.scrollTo(0, 80);
   }
   
   function handleNext(e){
     e.preventDefault();
     setCurrentPage((prevPage) => prevPage + 1);
-    setUrl(() => info.nextPage + '&name=' + search);
     localStorage.setItem('currentPage', currentPage + 1);
+    /*
+    setUrl(() => info.nextPage + '&name=' + search);
     localStorage.setItem('url', info.nextPage + '&name=' + search);
-    console.log(info.nextPage + '&name=' + search)
+    */
+    setUrl(() => `https://api.disneyapi.dev/character?page=${currentPage + 1}&pageSize=50&name=${search}`);
+    localStorage.setItem('url', `https://api.disneyapi.dev/character?page=${currentPage + 1}&pageSize=50&name=${search}`);
     window.scrollTo(0, 80);
   }
 
