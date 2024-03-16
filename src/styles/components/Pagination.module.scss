@@ -29,6 +29,12 @@
   }
 }
 
+.buttom{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .page, .buttom{
   cursor: pointer;
 
@@ -42,6 +48,7 @@
 
 .buttomDisabled{
   cursor: not-allowed;
+  pointer-events: none;
   opacity: 0.5;
 }
 

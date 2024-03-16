@@ -1,7 +1,15 @@
 import React from 'react';
 import style from '../../styles/components/Pagination.module.scss';
+import ArrowLeftIcon from '../../assets/arrow-left.svg?component';
+import ArrowRightIcon from '../../assets/arrow-right.svg?component';
 
-const Pagination = ({ totalPage, page, setPage}) => {
+const Pagination = ({ info, setUrl, search }) => {
+  const [currentPage, setCurrentPage] = React.useState(() => {
+    const currentPageStorage = localStorage.getItem('currentPage') 
+      ? Number(localStorage.getItem('currentPage')) 
+      : localStorage.setItem('currentPage', 1)
+    return currentPageStorage;
+  });
 
   function pagination(totalPage, currentPage){
     const arrayTotalPages = Array.from(Array(totalPage), (_, i) => i + 1);
@@ -9,7 +17,7 @@ const Pagination = ({ totalPage, page, setPage}) => {
     const startIndex = arrayTotalPages[currentPage - 1];
     const endIndex = startIndex + itemsPerPage;
     let currentItems = arrayTotalPages.slice(startIndex - startIndex, endIndex - startIndex);
-    
+
     if(startIndex !== 1 && startIndex !== 2 && startIndex !== 3){
       currentItems = arrayTotalPages.slice(startIndex - 4, endIndex - 4);
     }
@@ -20,44 +28,53 @@ const Pagination = ({ totalPage, page, setPage}) => {
   function handleClick(e){
     e.preventDefault();
     const valueTarget = e.target.innerText;
-    setPage(valueTarget);
-    window.localStorage.setItem('page', valueTarget);
+    setCurrentPage(Number(valueTarget));
+    setUrl(() => `https://api.disneyapi.dev/character?page=${valueTarget}&pageSize=50&name=${search}`);
+    localStorage.setItem('currentPage', Number(valueTarget));
+    localStorage.setItem('url', `https://api.disneyapi.dev/character?page=${valueTarget}&pageSize=50&name=${search}`);
+    window.scrollTo(0, 80);
   }
 
   function handlePrevious(e){
     e.preventDefault();
-
-    if(Number(page) > 1){
-      setPage(Number(page) - 1);
-      window.localStorage.setItem('page', Number(page) - 1);
-    }
+    setCurrentPage((prevPage) => prevPage - 1);
+    setUrl(() => info.previousPage + '&name=' + search);
+    localStorage.setItem('currentPage', currentPage - 1);
+    localStorage.setItem('url', info.previousPage + '&name=' + search);
+    window.scrollTo(0, 80);
   }
   
   function handleNext(e){
     e.preventDefault();
-    
-    if(Number(page) < 149){
-      setPage(Number(page) + 1);
-      window.localStorage.setItem('page', Number(page) + 1);
-    }
+    setCurrentPage((prevPage) => prevPage + 1);
+    setUrl(() => info.nextPage + '&name=' + search);
+    localStorage.setItem('currentPage', currentPage + 1);
+    localStorage.setItem('url', info.nextPage + '&name=' + search);
+    console.log(info.nextPage + '&name=' + search)
+    window.scrollTo(0, 80);
   }
+
+  React.useEffect(() => {
+    const getCurrentPage = localStorage.getItem('currentPage');
+    setCurrentPage(Number(getCurrentPage));
+  }, [localStorage.getItem('currentPage')])
 
   return (
     <nav className={style.container}>
       <button
         className={`
-          ${Number(page) !== 1 ? style.buttom : style.buttomDisabled}
+          ${currentPage !== 1 ? style.buttom : style.buttomDisabled}
         `} 
         onClick={handlePrevious}
       >
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKZJREFUSEvt1L0RQEAQhuFd0cUKoSUqQSWUhAoogPgyBoG/Gd/eLRkp8z7sgunjgz/u0w/ACXuNyIRxSTR1dmwLJDgDW5ySLTzlCHECzvFVqOzYpE9PIQZ84gssAnzjIkATh4A2LgCijIjzfYn4rbkuHO7AhDoEAssdaRARoEHEgC/iBNwQ5tQOdfXKl3yMrDvhoEdx+JqiP6XkvPOIJNHjNT8AJzYDOshNGW8n1m4AAAAASUVORK5CYII="/>
+        <ArrowLeftIcon />
       </button>
 
-      {pagination(totalPage, Number(page)).map((item, i) => (
+      {pagination(info.totalPages, currentPage).map((item, i) => (
         <a
           key={i} 
           className={
-            `${item === Number(page) ? style.activePage : style.page}`
+            `${item === currentPage ? style.activePage : style.page}`
           } 
           onClick={handleClick}
         >
@@ -67,11 +84,11 @@ const Pagination = ({ totalPage, page, setPage}) => {
 
       <button
         className={`
-          ${Number(page) !== 149 ? style.buttom : style.buttomDisabled}
+          ${currentPage !== info.totalPages ? style.buttom : style.buttomDisabled}
         `} 
         onClick={handleNext}
       >
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALVJREFUSEtjZKAxYKSx+QyjFhAMYaKCiENIfz4Dw/8HP95daiRoIpoCghZADGdIgOj730CqJXgt4BAwUGBg+hfPwMDYgHAYaZYQ9AHIYA4hvXpyLSHKAkosIdoCci0hyQJyLCHDAuRUBY76BT/eXUzElXxJsgA1yRI2HKSCaAvIMZxoC8g1nCgLKDGcSAtQMhneCMUW0UTFATQnK+BLLVRJRaSWpEQFETmGIushKogosWToWwAAcCJNGQOFyUEAAAAASUVORK5CYII="/>
+        <ArrowRightIcon />
       </button>
     </nav>
   )

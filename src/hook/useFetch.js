@@ -1,9 +1,8 @@
 import React from 'react';
 
 const useFetch = (urls) => {
-  const [data, setData] = React.useState(null);
-  const [infoPage, setInfoPage] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [characters, setCharacters] = React.useState([]);
+  const [info, setInfo] = React.useState({});
   const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
@@ -11,12 +10,12 @@ const useFetch = (urls) => {
       try{
         setLoading(true);
         const response = await fetch(url);
-        const json = await response.json();
-        setData(json.data);
-        setInfoPage(json.info);
+        const {info, data} = await response.json();
+        setInfo(info);
+        setCharacters(data);
       }
       catch(err){
-        setError(err.message);
+        console.log(err.message);
       }
       finally{
         setLoading(false);
@@ -26,10 +25,10 @@ const useFetch = (urls) => {
   }, [urls]);
 
   return {
-    data,
-    infoPage,
-    error,
-    loading
+    characters,
+    setCharacters,
+    info,
+    loading,
   }
 }
 

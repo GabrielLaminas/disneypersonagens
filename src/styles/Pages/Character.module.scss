@@ -5,31 +5,76 @@
 
 .container{
   @include container;
+  position: relative;
+}
+
+.backhome{
+  width: fit-content;
+  margin-bottom: 32px;
+
+  a{
+    padding: 8px 26px 8px 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background-color: $color3;
+    font-size: 1.25rem;
+    color: #ffff;
+    border-radius: 4px;
+    transition: .4s;
+    border: 3px solid $color3;
+    outline: none;
+    &:hover{
+      background-color: darken($color: $color1, $amount: 1%);
+    }
+    &:focus{
+      border: 3px solid $color1;
+    }
+  }
 }
 
 .grid{
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 460px 1fr;
   align-items: start;
-  gap: 32px;
-
+  gap: 100px;
+  @include small-laptop{
+    grid-template-columns: 400px 1fr;
+    gap: 24px;
+  }
   @include tablet{
-    margin-bottom: 40px;
     grid-template-columns: 1fr;
     gap: 16px;
   }
 }
 
 .imgContainer{
+  width: 100%;
+  height: 480px;
   animation: show-left .8s ease-out forwards;
-
+  position: -webkit-sticky;
+  position: sticky;
+  top: 12px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  @include tablet{
+    height: 380px;
+    position: static;
+  }
+  @include mobile{
+    height: 300px;
+  }
   img{
     width: 100%;
-    border-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    
     box-shadow: 0 0 16px rgba(
       $color: $color11, 
-      $alpha: .08
+      $alpha: .1
     );
   }
 }
@@ -37,7 +82,7 @@
 .gridInfo{
   padding: 0 16px;
   animation: show-right .8s ease-out forwards;
-  
+
   .title{
     margin-bottom: 16px;
     position: relative;  
@@ -64,26 +109,32 @@
   }
 
   .topic{
-    margin-bottom: 24px;
-    margin-right: 8px;
-    color: $color11;
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
+    & + article{
+      margin-top: 20px;
+    }
 
-  .items{
-    margin-top: 8px;
-    margin-left: 20px;
-    color: rgba($color: $color11, $alpha: .67);
-    list-style: initial;
-    font-size: 1rem;
-    font-weight: 400;
-  }
+    h2{
+      margin-right: 8px;
+      margin-bottom: 4px;
+      color: $color11;
+    }
 
-  .nitems{
-    margin-top: 8px;
-    font-weight: 400;
-    color: rgba($color: $color55, $alpha: .8);
-    font-size: 1rem;
+    li{
+      margin-top: 8px;
+      margin-left: 20px;
+      color: rgba($color: $color11, $alpha: .8);
+      list-style: initial;
+      font-size: 1rem;
+    }
+
+    .nitems{
+      margin-left: 0;
+      margin-top: 8px;
+      font-weight: 400;
+      color: rgba($color: $color55, $alpha: .7);
+      font-size: 1rem;
+      list-style: none;
+      font-weight: 600;
+    }
   }
 }
