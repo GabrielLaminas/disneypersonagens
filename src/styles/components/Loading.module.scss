@@ -1,22 +1,24 @@
 .wrapper{
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: .3s;
 }
 
 .wrapper svg {
-  transition: .3s;
-  animation: show-hide 1.2s infinite;
+  animation: show-hide .8s forwards alternate infinite;
 }
 
 @keyframes show-hide {
   from{
     opacity: 0;
-    transform: scale(0);
+    transform: scale(1);
   }
   to{
     opacity: 1;

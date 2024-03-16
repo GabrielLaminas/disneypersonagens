@@ -1,0 +1,59 @@
+@import '../Abstract/color.module.scss';
+@import '../Abstract/animation.module.scss';
+@import '../Abstract/midiaquerie.module.scss';
+
+.searchArticle{
+   flex-shrink: 0;
+   width: fit-content;
+   margin-bottom: 32px;
+   border-radius: 6px;
+   overflow: hidden;
+
+   @include mobile{
+      width: 100%;
+   }
+   .searchArticle__container{
+      display: flex;
+
+      input{
+         padding: 10px 14px;
+         color: $color11;
+         font-size: 1rem;
+         border: 2px solid transparent;
+         outline: none;
+         @include mobile{
+            width: 100%;
+         }
+         &:focus{
+            border: 2px solid $color1;
+            border-radius: 6px 0 0 6px;
+         }
+      }
+
+      input::placeholder{
+         color: $color11;
+      }
+
+      button{
+         padding: 10px 20px;
+         flex-shrink: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background-color: $color1;
+         cursor: pointer;
+         border: none;
+         outline: none;
+         transition: .4s;
+         border: 3px solid transparent;
+
+         &:hover{
+            background-color: $color3; 
+         }
+         &:focus{
+            border: 3px solid $color3;
+            border-radius: 0;
+         }
+      }
+   }
+}
